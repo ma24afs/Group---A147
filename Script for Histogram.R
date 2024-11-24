@@ -1,8 +1,10 @@
 
 library(ggplot2)
+#to remove scientific number
+options(scipen = 999)
 
 # read csv
-data <- read.csv("C:/Users/Asus/Documents/Group project/Group---A147/flight_data.csv")
+data <- read.csv("A:/TR&D/Group---A147/flight_data.csv")
 
 # histrogram 
 ggplot(data, aes(x = Price)) +
@@ -15,5 +17,6 @@ ggplot(data, aes(x = Price)) +
   theme_minimal()
 
 # Spearman Rho
-spearman_rho <- cor(data$Duration, data$Price, method = "spearman")
+spearman_rho <- cor.test(data$Duration, data$Price, method = "spearman")
 print(spearman_rho)
+
