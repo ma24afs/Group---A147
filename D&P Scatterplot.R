@@ -19,6 +19,9 @@ str(flight_data)
 
 ggplot(flight_data, aes(x = Duration, y = Price, color = FlightName)) +
   geom_point(size = 3, alpha = 0.6) +
-  labs(title = "Scatter Plot for Duration and Price", x = "Duration in Minutes", y = "Price in Rupees") +
+  geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "solid") +
+  labs(title = "Scatter Plot for Duration and Price", 
+       x = "Duration in Minutes", 
+       y = "Price in Rupees") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
